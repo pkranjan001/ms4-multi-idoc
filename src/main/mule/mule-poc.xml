@@ -5,13 +5,13 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="2e770538-606f-4ca3-bb07-03e27f05cefa" >
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="65eb9dd9-bdf1-4edf-a585-d29794b6e111" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
-	<flow name="pocFlow" doc:id="9cba7574-7288-417c-a890-3377023f5c7b" >
-		<http:listener doc:name="Listener" doc:id="f036348d-7258-4cee-8eb0-293968c56fce" config-ref="HTTP_Listener_config" path="/test"/>
-		<logger level="INFO" doc:name="Logger" doc:id="4607bcf3-c8ec-4553-ae19-495700c8aa6e" message="#[payload]"/>
-		<ee:transform doc:name="Transform Message" doc:id="b51589e4-7276-4b66-9852-eeb5914367dc" >
+	<flow name="mule-pocFlow" doc:id="32f6449c-e52a-4c7f-9cec-69e4fde25537" >
+		<http:listener doc:name="Listener" doc:id="4468998f-8a72-4fbd-bbb8-48472f13ae40" config-ref="HTTP_Listener_config" path="/test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="d9f54985-4800-4d1b-8f17-6be82e17fad5" message="#[payload]"/>
+		<ee:transform doc:name="Transform Message" doc:id="5a433858-9e27-4e17-badb-1d9b0dbb934e" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
